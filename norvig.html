@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Norvig's implementation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <h1>Algorithm's training</h1>
+        <p>
+            <label for="unigrams">File for unigrams :</label><br/>
+            <input type="file" id="unigrams" onchange="handleFile(this.files, getUnigramsP)"/><br/>
+            <label for="bigrams">File for bigrams :</label><br/>
+            <input type="file" id="bigrams" onchange="handleFile(this.files, getBigramsP)"/><br/>
+            <label for="edits">File for single edits :</label><br/>
+            <input type="file" id="edits" onchange="handleFile(this.files, getSingEditsP)"/>
+        </p>
+        <h1>Correction</h1>
+        <p>
+            <label for="word">Word to correct :</label><br/>
+            <input type="text" id="word"/><button id="correct" onclick="displayC();">Correct</button>
+        </p>
+        <p id="correction"></p>
+        <script src="norvig.js"></script>
+        <script>
+            var displayC = function() {
+                var c = correct(document.getElementById('word').value);
+                document.getElementById('correction').innerHTML = c;
+            }
+        </script>
+    </body>
+</html>
